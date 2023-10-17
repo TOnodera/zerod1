@@ -22,7 +22,7 @@ class TwoLayerNet:
     def predict(self, x):
         for layer in self.layers.values():
             x = layer.forward(x)
-            return x
+        return x
         
     def loss(self, x, t):
         y = self.predict(x)
@@ -57,7 +57,7 @@ class TwoLayerNet:
         layers = list(self.layers.values())
         layers.reverse()
         for layer in layers:
-            dout = layer.backword(dout)
+            dout = layer.backward(dout)
 
         grads = {}
         grads['W1'] = self.layers['Affine1'].dW
